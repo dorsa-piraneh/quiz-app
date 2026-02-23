@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="./assets/libs/bootstrap/bootstrap.rtl.min.css" /> -->
+
+    <!-- Sweet Alert 2 CSS -->
+    <link rel="stylesheet" href="./assets/libs/sweetalert2/sweetalert2.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./assets/icons/FontAwesome/css/all.css" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body class="center">
+    <div class="container">
+      <h1 class="page-title">Quiz App</h1>
+
+      <!-- Quiz Section -->
+      <div class="quiz-container">
+        <!-- Question Counter -->
+        <div class="question-count">
+          <span class="current-question">01</span>
+          <span class="separator">/</span>
+          <span class="total-questions">10</span>
+        </div>
+
+        <!-- Question Title -->
+        <h2 class="question-title">What is the purpose of the 'alt' attribute in the img tag?</h2>
+
+        <!-- Options -->
+        <div class="options-container">
+          <article class="quiz-option">
+            <div class="checkbox-wrapper">
+              <label class="container" for="opt1">
+                <input type="radio" name="option" class="checkbox-input" id="opt1" />
+                <div class="checkmark"></div>
+                <span class="option-text">To provide alternate text for accessibility</span>
+              </label>
+            </div>
+          </article>
+
+            <article class="quiz-option">
+            <div class="checkbox-wrapper">
+              <label class="container" for="opt2">
+                <input type="radio" name="option" class="checkbox-input" id="opt2" />
+                <div class="checkmark"></div>
+                <span class="option-text">To add animation</span>
+              </label>
+            </div>
+          </article>
+
+            <article class="quiz-option">
+            <div class="checkbox-wrapper">
+              <label class="container" for="opt3">
+                <input type="radio" name="option" class="checkbox-input" id="opt3" />
+                <div class="checkmark"></div>
+                <span class="option-text">To change image size</span>
+              </label>
+            </div>
+          </article>
+
+            <article class="quiz-option">
+            <div class="checkbox-wrapper">
+              <label class="container" for="opt4">
+                <input type="radio" name="option" class="checkbox-input" id="opt4" />
+                <div class="checkmark"></div>
+                <span class="option-text">To link images to another page</span>
+              </label>
+            </div>
+          </article>
+
+
+
+        </div>
+
+        <!-- Next Button -->
+        <button class="next-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Sweet Alert 2 JS -->
+    <script src="./assets/libs/sweetalert2/sweetalert2@11.js"></script>
+
+    <!-- Bootstarp JS -->
+    <!-- <script src="./assets/libs/bootstrap/bootstrap.bundle.min.js"></script> -->
+
+    <!-- Main JS -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>
