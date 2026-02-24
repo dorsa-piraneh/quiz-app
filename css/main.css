@@ -555,7 +555,7 @@ body {
     font-size: 14px;
   }
 
-  .next-btn {
+  .quiz-btn {
     font-size: 14px;
     padding: 12px;
   }
@@ -600,8 +600,75 @@ body {
     font-size: 12px;
   }
 
-  .next-btn {
+  .quiz-btn {
     font-size: 12px;
     padding: 10px;
+  }
+
+  .modal-content {
+    width: 280px;
+  }
+
+  .score-section {
+    width: 160px;
+    height: 160px;
+  }
+
+  .score-section::after,
+  .score-section::before {
+    top: 13%;
+    left: 13%;
+    height: 75%;
+    width: 75%;
+  }
+
+  .score-value {
+    font-size: 22px;
+  }
+
+  .score-total {
+    font-size: 16px;
+  }
+
+  .score-label,
+  .result-questions,
+  .correct-count,
+  .wrong-count {
+    font-size: 14px;
+  }
+
+  .total-value,
+  .correct-value,
+  .wrong-value {
+    font-size: 16px;
+  }
+
+  .modal-btn {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .loader-circle {
+    height: 200px;
+    width: 200px;
+  }
+
+  .loader-circle::before {
+    height: 120px;
+    width: 120px;
+  }
+
+  .loader-dot {
+    height: 140px;
+    width: 136px;
+  }
+
+  .loader-dot::before {
+    width: 23px;
+    height: 23px;
+  }
+
+  .loader-text {
+    font-size: 16px;
   }
 }
