@@ -302,13 +302,14 @@ body {
 }
 
 .score-section {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   position: relative;
   border-radius: 50%;
   flex-direction: column;
   gap: 4px;
   overflow: hidden;
+  font-weight: 500;
   box-shadow:
     -8px -4px 8px 0px #ffffff,
     8px 4px 12px 0px #d1d9e6;
@@ -318,10 +319,10 @@ body {
 .score-section::before {
   content: '';
   position: absolute;
-  top: 10%;
-  left: 10%;
-  height: 80%;
-  width: 80%;
+  top: 13%;
+  left: 13%;
+  height: 75%;
+  width: 75%;
   border-radius: 50%;
 }
 
@@ -348,17 +349,13 @@ body {
   z-index: 10;
 }
 
-.score-label {
-  font-weight: 600;
-}
-
 .score-value {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .score-total {
   color: var(--color-muted);
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .total-value,
@@ -610,20 +607,12 @@ body {
   }
 
   .score-section {
-    width: 160px;
-    height: 160px;
-  }
-
-  .score-section::after,
-  .score-section::before {
-    top: 13%;
-    left: 13%;
-    height: 75%;
-    width: 75%;
+    width: 140px;
+    height: 140px;
   }
 
   .score-value {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .score-total {
@@ -643,9 +632,13 @@ body {
     font-size: 16px;
   }
 
+  .modal-actions {
+    gap: 10px;
+    margin-top: 10px;
+}
+
   .modal-btn {
-    font-size: 12px;
-    padding: 10px;
+    font-size: 13px;
   }
 
   .loader-circle {
