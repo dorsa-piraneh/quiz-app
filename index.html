@@ -39,7 +39,40 @@
 
         <!-- Quiz Buttons -->
         <button class="quiz-btn next-btn" disabled>Next</button>
-        <button class="quiz-btn submit-btn hidden">Submit</button>
+        <button class="quiz-btn submit-btn hidden" disabled>Resault</button>
+        <button type="button" class="quiz-btn play-again-btn hidden reset-btn">
+          Play again
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="resultModal" class="modal center">
+      <div class="modal-content center">
+        <div class="score-section center">
+          <p class="score-label">Score :</p>
+          <p class="result-score">
+            <span class="score-value"></span>
+            <span class="score-total">/100</span>
+          </p>
+        </div>
+
+        <p class="result-questions">Total Questions : <span class="total-value"></span></p>
+
+        <p class="correct-count">Correct : <span class="correct-value"></span></p>
+
+        <p class="wrong-count">Wrong : <span class="wrong-value"></span></p>
+
+        <div class="modal-actions center">
+          <button type="button" class="modal-btn play-again-btn">
+            Play again
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </button>
+          <button type="button" class="modal-btn close-modal-btn">
+            Done
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
       </div>
     </div>
 
