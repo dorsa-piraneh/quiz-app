@@ -133,9 +133,9 @@ const resetQuiz = () => {
 const showResultModal = () => {
   resultModal.classList.add('show');
   scoreValue.textContent = score;
-  totalValue.textContent = totalQuestions.toString().padStart(2, 0);
-  correctValue.textContent = correctAnswersCount === 0 ? '0' : correctAnswersCount.toString().padStart(2, 0);
-  wrongValue.textContent = wrongAnswersCount === 0 ? '0' : wrongAnswersCount.toString().padStart(2, 0);
+  totalValue.textContent = totalQuestions;
+  correctValue.textContent = correctAnswersCount;
+  wrongValue.textContent = wrongAnswersCount;
 };
 
 const hideResultModal = () => {
