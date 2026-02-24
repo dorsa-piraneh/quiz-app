@@ -26,10 +26,8 @@ const wrongValue = document.querySelector('.wrong-value');
 /* ========================================================================================
                                      INITIAL STATE
 ======================================================================================== */
-nextBtn.setAttribute('disabled', 'true');
-resultBtn.setAttribute('disabled', 'true');
-
 const totalQuestions = questions.length;
+
 let currentQuestionNumber = 1;
 let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
@@ -38,6 +36,22 @@ let score = null;
 /* ========================================================================================
                                        FUNCTIONS
 ======================================================================================== */
+
+const enableButton = (btn) => {
+  btn.removeAttribute('disabled');
+};
+
+const disableButton = (btn) => {
+  btn.setAttribute('disabled', 'true');
+};
+
+const showButton = (btn) => {
+  btn.classList.remove('hidden');
+};
+
+const hideButton = (btn) => {
+  btn.classList.add('hidden');
+};
 
 const renderQuestions = () => {
   optionsContainer.innerHTML = '';
@@ -83,16 +97,36 @@ const checkAnswer = () => {
   }
 
   if (currentQuestionNumber === totalQuestions) {
-    resultBtn.removeAttribute('disabled');
+    enableButton(resultBtn);
   }
 
   optionInputs.map((input) => input.setAttribute('disabled', true));
-  nextBtn.removeAttribute('disabled');
+  enableButton(nextBtn);
   Array.from(document.querySelectorAll('.option-label')).forEach((label) => (label.style.cursor = 'not-allowed'));
 };
 
 const calculateScore = () => {
   score = Math.round((correctAnswersCount * 100) / totalQuestions);
+};
+
+const resetQuiz = () => {
+  currentQuestionNumber = 1;
+  correctAnswersCount = 0;
+  wrongAnswersCount = 0;
+  score = null;
+  hideResultModal();
+  renderQuestions();
+  disableButton(nextBtn);
+  disableButton(resultBtn);
+  if (totalQuestions === 1) {
+    hideButton(nextBtn);
+    showButton(resultBtn);
+  } else {
+    showButton(nextBtn);
+    hideButton(resultBtn);
+  }
+
+  hideButton(resetBtn);
 };
 
 const showResultModal = () => {
@@ -111,10 +145,12 @@ const hideResultModal = () => {
                                       EVENT LISTENERS
 ======================================================================================== */
 window.addEventListener('load', () => {
+  disableButton(nextBtn);
+  disableButton(resultBtn);
   renderQuestions();
   if (totalQuestions === 1) {
-    nextBtn.classList.add('hidden');
-    resultBtn.classList.remove('hidden');
+    hideButton(nextBtn);
+    showButton(resultBtn);
   }
 });
 
@@ -125,10 +161,10 @@ nextBtn.addEventListener('click', () => {
   }
 
   if (currentQuestionNumber == totalQuestions) {
-    resultBtn.classList.remove('hidden');
-    nextBtn.classList.add('hidden');
+    showButton(resultBtn);
+    hideButton(nextBtn);
   }
-  nextBtn.setAttribute('disabled', 'true');
+  disableButton(nextBtn);
 });
 
 optionsContainer.addEventListener('change', (event) => {
@@ -139,31 +175,11 @@ optionsContainer.addEventListener('change', (event) => {
 resultBtn.addEventListener('click', () => {
   calculateScore();
   showResultModal();
-  resetBtn.classList.remove('hidden');
+  showButton(resetBtn);
 });
 
 closeModalBtn.addEventListener('click', hideResultModal);
 
 playAgainBtns.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    currentQuestionNumber = 1;
-    correctAnswersCount = 0;
-    wrongAnswersCount = 0;
-    score = null;
-    hideResultModal();
-    renderQuestions();
-
-    nextBtn.setAttribute('disabled', 'true');
-    resultBtn.setAttribute('disabled', 'true');
-
-    if (totalQuestions === 1) {
-      nextBtn.classList.add('hidden');
-      resultBtn.classList.remove('hidden');
-    } else {
-      nextBtn.classList.remove('hidden');
-      resultBtn.classList.add('hidden');
-    }
-
-    resetBtn.classList.add('hidden');
-  });
+  btn.addEventListener('click', resetQuiz);
 });
