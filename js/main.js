@@ -11,7 +11,7 @@ const totalQuestionsElem = document.querySelector('.total-questions');
 const questionTitle = document.querySelector('.question-title');
 const optionsContainer = document.querySelector('.options-container');
 const nextBtn = document.querySelector('.next-btn');
-const submitBtn = document.querySelector('.submit-btn');
+const resultBtn = document.querySelector('.result-btn');
 const resetBtn = document.querySelector('.reset-btn');
 
 const playAgainBtns = document.querySelectorAll('.play-again-btn');
@@ -27,7 +27,7 @@ const wrongValue = document.querySelector('.wrong-value');
                                      INITIAL STATE
 ======================================================================================== */
 nextBtn.setAttribute('disabled', 'true');
-submitBtn.setAttribute('disabled', 'true');
+resultBtn.setAttribute('disabled', 'true');
 
 const totalQuestions = questions.length;
 let currentQuestionNumber = 1;
@@ -83,7 +83,7 @@ const checkAnswer = () => {
   }
 
   if (currentQuestionNumber === totalQuestions) {
-    submitBtn.removeAttribute('disabled');
+    resultBtn.removeAttribute('disabled');
   }
 
   optionInputs.map((input) => input.setAttribute('disabled', true));
@@ -99,8 +99,8 @@ const showResultModal = () => {
   resultModal.classList.add('show');
   scoreValue.textContent = score;
   totalValue.textContent = totalQuestions.toString().padStart(2, 0);
-  correctValue.textContent = correctAnswersCount.toString().padStart(2, 0);
-  wrongValue.textContent = wrongAnswersCount.toString().padStart(2, 0);
+  correctValue.textContent = correctAnswersCount === 0 ? '0' : correctAnswersCount.toString().padStart(2, 0);
+  wrongValue.textContent = wrongAnswersCount === 0 ? '0' : wrongAnswersCount.toString().padStart(2, 0);
 };
 
 const hideResultModal = () => {
@@ -112,9 +112,9 @@ const hideResultModal = () => {
 ======================================================================================== */
 window.addEventListener('load', () => {
   renderQuestions();
-  if (totalQuestions == 1) {
+  if (totalQuestions === 1) {
     nextBtn.classList.add('hidden');
-    submitBtn.classList.remove('hidden');
+    resultBtn.classList.remove('hidden');
   }
 });
 
@@ -125,7 +125,7 @@ nextBtn.addEventListener('click', () => {
   }
 
   if (currentQuestionNumber == totalQuestions) {
-    submitBtn.classList.remove('hidden');
+    resultBtn.classList.remove('hidden');
     nextBtn.classList.add('hidden');
   }
   nextBtn.setAttribute('disabled', 'true');
@@ -136,7 +136,7 @@ optionsContainer.addEventListener('change', (event) => {
   checkAnswer();
 });
 
-submitBtn.addEventListener('click', () => {
+resultBtn.addEventListener('click', () => {
   calculateScore();
   showResultModal();
   resetBtn.classList.remove('hidden');
@@ -154,14 +154,14 @@ playAgainBtns.forEach((btn) => {
     renderQuestions();
 
     nextBtn.setAttribute('disabled', 'true');
-    submitBtn.setAttribute('disabled', 'true');
+    resultBtn.setAttribute('disabled', 'true');
 
-    if (totalQuestions == 1) {
+    if (totalQuestions === 1) {
       nextBtn.classList.add('hidden');
-      submitBtn.classList.remove('hidden');
+      resultBtn.classList.remove('hidden');
     } else {
       nextBtn.classList.remove('hidden');
-      submitBtn.classList.add('hidden');
+      resultBtn.classList.add('hidden');
     }
 
     resetBtn.classList.add('hidden');
