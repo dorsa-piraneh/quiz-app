@@ -264,7 +264,7 @@ body {
 }
 
 /* -------------------------------------------------------------
-                         Modal
+                            Modal
 ------------------------------------------------------------- */
 .modal {
   position: fixed;
@@ -407,6 +407,70 @@ body {
   box-shadow:
     -2px -2px 5px #fff,
     2px 2px 5px var(--color-shadow);
+}
+
+/* -------------------------------------------------------------
+                          Loader
+------------------------------------------------------------- */
+
+.loader-wrapper {
+  background-color: var(--color-bg);
+  position: fixed;
+  inset: 0;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+
+.loader-wrapper.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  box-shadow:
+    inset -10px -10px 15px rgba(255, 255, 255, 1),
+    inset 10px 10px 10px rgba(0, 0, 0, 0.1);
+
+  z-index: 1000;
+}
+.loader-circle::before {
+  content: '';
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  box-shadow:
+    -10px -10px 15px rgba(255, 255, 255, 1),
+    10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.loader-dot {
+  height: 156px;
+  width: 180px;
+  position: absolute;
+  animation: rotate 3s linear infinite;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-dot::before {
+  content: '';
+  position: absolute;
+  height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  background: var(--color-primary);
+  box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
 }
 
 /* -------------------------------------------------------------

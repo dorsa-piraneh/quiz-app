@@ -6,6 +6,7 @@ import { questions } from './data.js';
 /* ========================================================================================
                                      DOM ELEMENTS
 ======================================================================================== */
+const loader = document.querySelector('.loader-wrapper')
 const questionNumberElem = document.querySelector('.question-number');
 const totalQuestionsElem = document.querySelector('.total-questions');
 const questionTitle = document.querySelector('.question-title');
@@ -145,6 +146,7 @@ const hideResultModal = () => {
                                       EVENT LISTENERS
 ======================================================================================== */
 window.addEventListener('load', () => {
+  loader.classList.add('hide')
   disableButton(nextBtn);
   disableButton(resultBtn);
   renderQuestions();
