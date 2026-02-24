@@ -412,7 +412,6 @@ body {
 /* -------------------------------------------------------------
                           Loader
 ------------------------------------------------------------- */
-
 .loader-wrapper {
   background-color: var(--color-bg);
   position: fixed;
@@ -458,11 +457,13 @@ body {
   position: absolute;
   animation: rotate 3s linear infinite;
 }
+
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
   }
 }
+
 .loader-dot::before {
   content: '';
   position: absolute;
@@ -471,6 +472,13 @@ body {
   width: 30px;
   background: var(--color-primary);
   box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+}
+
+.loader-text {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
 }
 
 /* -------------------------------------------------------------
